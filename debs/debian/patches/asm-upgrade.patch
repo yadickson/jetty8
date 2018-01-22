@@ -1,0 +1,70 @@
+Description: Upgrade to ASM 5 and fix the compatibility with Java 8
+Origin: backport, https://github.com/eclipse/jetty.project/commit/f447870.patch
+--- a/jetty-annotations/src/main/java/org/eclipse/jetty/annotations/AnnotationParser.java
++++ b/jetty-annotations/src/main/java/org/eclipse/jetty/annotations/AnnotationParser.java
+@@ -38,9 +38,10 @@
+ import org.eclipse.jetty.webapp.JarScanner;
+ import org.objectweb.asm.AnnotationVisitor;
+ import org.objectweb.asm.ClassReader;
++import org.objectweb.asm.ClassVisitor;
+ import org.objectweb.asm.FieldVisitor;
+ import org.objectweb.asm.MethodVisitor;
+-import org.objectweb.asm.commons.EmptyVisitor;
++import org.objectweb.asm.Opcodes;
+ 
+ /**
+  * AnnotationParser
+@@ -280,13 +281,14 @@
+      *
+      * ASM Visitor for Annotations
+      */
+-    public class MyAnnotationVisitor implements AnnotationVisitor
++    public class MyAnnotationVisitor extends AnnotationVisitor
+     {
+         List<Value> _annotationValues;
+         String _annotationName;
+         
+         public MyAnnotationVisitor (String annotationName, List<Value> values)
+         {
++            super(Opcodes.ASM5);
+             _annotationValues = values;
+             _annotationName = annotationName;
+         }
+@@ -354,7 +356,7 @@
+      *
+      * ASM visitor for a class.
+      */
+-    public class MyClassVisitor extends EmptyVisitor
++    public class MyClassVisitor extends ClassVisitor
+     {
+         String _className;
+         int _access;
+@@ -363,6 +365,10 @@
+         String[] _interfaces;
+         int _version;
+ 
++        public MyClassVisitor()
++        {
++            super(Opcodes.ASM5);
++        }
+ 
+         public void visit (int version,
+                            final int access,
+@@ -429,7 +435,7 @@
+                                           final String[] exceptions)
+         {   
+ 
+-            return new EmptyVisitor ()
++            return new MethodVisitor (Opcodes.ASM5)
+             {
+                 public AnnotationVisitor visitAnnotation(String desc, boolean visible)
+                 {
+@@ -463,7 +469,7 @@
+                                         final Object value)
+         {
+ 
+-            return new EmptyVisitor ()
++            return new FieldVisitor (Opcodes.ASM5)
+             {
+                 public AnnotationVisitor visitAnnotation(String desc, boolean visible)
+                 {

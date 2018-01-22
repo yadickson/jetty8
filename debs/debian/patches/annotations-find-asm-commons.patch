@@ -1,0 +1,21 @@
+From: Jakub Adam <jakub.adam@ktknet.cz>
+Date: Thu, 1 Mar 2012 21:28:39 +0100
+Subject: annotations-find-asm-commons
+
+---
+ jetty-annotations/pom.xml |    5 +++++
+ 1 files changed, 5 insertions(+), 0 deletions(-)
+
+--- a/jetty-annotations/pom.xml
++++ b/jetty-annotations/pom.xml
+@@ -105,5 +105,10 @@
+       <groupId>org.eclipse.jetty.orbit</groupId>
+       <artifactId>org.objectweb.asm</artifactId>
+     </dependency>
++    <dependency>
++      <groupId>asm</groupId>
++      <artifactId>asm-commons</artifactId>
++      <version>4.x</version>
++    </dependency>
+   </dependencies>
+ </project>

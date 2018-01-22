@@ -1,0 +1,43 @@
+#!/bin/sh
+set -e
+
+#DEBHELPER#
+
+# Remove cached files
+rm -rf /var/cache/jetty8/*
+
+case "$1" in
+    remove)
+        rmdir --ignore-fail-on-non-empty \
+            /var/lib/jetty8/webapps/root \
+            /var/lib/jetty8/webapps \
+            /var/lib/jetty8 || true
+
+        if [ -d "/var/cache/jetty8" ] ; then
+            rm -rf /var/cache/jetty8
+        fi
+    ;;
+
+    purge)
+        # Remove user/group and log files (don't remove everything under
+        # /var/lib/jetty because there might be user-installed webapps)
+        deluser jetty || true
+        rm -rf /var/log/jetty8
+        if [ -d "/var/lib/jetty8" ] ; then
+            rmdir --ignore-fail-on-non-empty /var/lib/jetty8 || true
+        fi
+        rmdir --ignore-fail-on-non-empty /etc/jetty8/contexts /etc/jetty8 || true
+
+        # clean up /etc/authbind after conffiles have been removed
+        rmdir --ignore-fail-on-non-empty /etc/authbind/byuid /etc/authbind || true
+    ;;
+
+    remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
+        # Nothing to do here
+    ;;
+
+    *)
+        echo "$0 called with unknown argument \`$1'" >&2
+        exit 1
+    ;;
+esac

@@ -1,0 +1,32 @@
+jetty for Debian
+----------------
+
+This debian package installs Jetty 8 into /usr/share/jetty8
+and other directories under /var and /etc, which are linked to
+from the /usr/share/jetty8 directory.
+
+The configuration of the server is in /etc/jetty8. The configuration
+files listed in /etc/jetty8/jetty.conf are passed to the command
+line of Jetty when it is started by /etc/init.d/jetty8
+
+Webapps can be deployed by placing them in /var/lib/jetty8/webapps
+(linked from /usr/share/jetty8/webapps)
+Additional contexts can be configured and (hot) deployed via the 
+/etc/jetty8/contexts directory (linked from /usr/share/jetty8/contexts).
+
+Installing:
+
+$ sudo apt-get install jetty8
+
+Stopping:
+
+$ sudo service jetty8 stop
+
+--
+
+This packaging is heavily based on the work done by Philipp Meier <meier@meisterbohne.de>
+and Michael Koch <konqueror@gmx.de>.
+
+-- 
+Greg Wilkins <gregw@mortbay.com> Thu Nov  8 18:10:06 EST 2007
+David Yu <david.yu.ftw@gmail.com> Thu May  21 15:06:30 EST 2009

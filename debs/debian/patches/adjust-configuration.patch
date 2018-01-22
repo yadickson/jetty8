@@ -1,0 +1,12 @@
+Description: Adjust the configuration of the default distribution
+Author: Emmanuel Bourg <ebourg@apache.org>
+Forwarded: not-needed
+--- a/jetty-distribution/src/main/resources/start.ini
++++ b/jetty-distribution/src/main/resources/start.ini
+@@ -64,5 +64,5 @@
+ #etc/jetty-overlay.xml
+ etc/jetty-webapps.xml
+ etc/jetty-contexts.xml
+-etc/jetty-testrealm.xml
++#etc/jetty-testrealm.xml
+ #===========================================================

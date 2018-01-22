@@ -1,0 +1,72 @@
+# List of POM files for the package
+# Format of this file is:
+# <path to pom file> [option]*
+# where option can be:
+#   --ignore: ignore this POM and its artifact if any
+#   --ignore-pom: don't install the POM. To use on POM files that are created
+#     temporarily for certain artifacts such as Javadoc jars. [mh_install, mh_installpoms]
+#   --no-parent: remove the <parent> tag from the POM
+#   --package=<package>: an alternative package to use when installing this POM
+#      and its artifact
+#   --has-package-version: to indicate that the original version of the POM is the same as the upstream part
+#      of the version for the package.
+#   --keep-elements=<elem1,elem2>: a list of XML elements to keep in the POM
+#      during a clean operation with mh_cleanpom or mh_installpom
+#   --artifact=<path>: path to the build artifact associated with this POM,
+#      it will be installed when using the command mh_install. [mh_install]
+#   --java-lib: install the jar into /usr/share/java to comply with Debian
+#      packaging guidelines
+#   --usj-name=<name>: name to use when installing the library in /usr/share/java
+#   --usj-version=<version>: version to use when installing the library in /usr/share/java
+#   --no-usj-versionless: don't install the versionless link in /usr/share/java
+#   --dest-jar=<path>: the destination for the real jar.
+#     It will be installed with mh_install. [mh_install]
+#   --classifier=<classifier>: Optional, the classifier for the jar. Empty by default.
+#   --site-xml=<location>: Optional, the location for site.xml if it needs to be installed.
+#     Empty by default. [mh_install]
+#
+pom.xml --no-parent
+jetty-aggregate/pom.xml --ignore
+jetty-continuation/pom.xml           --java-lib --usj-name=jetty8-continuation
+jetty-deploy/pom.xml                 --java-lib --usj-name=jetty8-deploy
+jetty-http/pom.xml                   --java-lib --usj-name=jetty8-http
+jetty-io/pom.xml                     --java-lib --usj-name=jetty8-io
+jetty-jaspi/pom.xml                  --java-lib --usj-name=jetty8-jaspi
+jetty-jmx/pom.xml                    --java-lib --usj-name=jetty8-jmx
+jetty-jsp/pom.xml                    --java-lib --usj-name=jetty8-jsp
+jetty-nested/pom.xml                 --java-lib --usj-name=jetty8-nested
+jetty-overlay-deployer/pom.xml       --java-lib --usj-name=jetty8-overlay-deployer
+jetty-policy/pom.xml                 --java-lib --usj-name=jetty8-policy
+jetty-rewrite/pom.xml                --java-lib --usj-name=jetty8-rewrite
+jetty-security/pom.xml               --java-lib --usj-name=jetty8-security
+jetty-server/pom.xml                 --java-lib --usj-name=jetty8-server
+jetty-servlet/pom.xml                --java-lib --usj-name=jetty8-servlet
+jetty-servlets/pom.xml               --java-lib --usj-name=jetty8-servlets
+jetty-start/pom.xml                  --java-lib --usj-name=jetty8-start
+jetty-util/pom.xml                   --java-lib --usj-name=jetty8-util
+jetty-webapp/pom.xml                 --java-lib --usj-name=jetty8-webapp
+jetty-websocket/pom.xml              --java-lib --usj-name=jetty8-websocket
+jetty-xml/pom.xml                    --java-lib --usj-name=jetty8-xml
+
+# Extras
+jetty-ajp/pom.xml                    --java-lib --usj-name=jetty8-ajp          --package=libjetty8-extra-java
+jetty-annotations/pom.xml            --java-lib --usj-name=jetty8-annotations  --package=libjetty8-extra-java
+jetty-client/pom.xml                 --java-lib --usj-name=jetty8-client       --package=libjetty8-extra-java
+jetty-jndi/pom.xml                   --java-lib --usj-name=jetty8-jndi         --package=libjetty8-extra-java
+jetty-monitor/pom.xml                --java-lib --usj-name=jetty8-monitor      --package=libjetty8-extra-java
+jetty-plus/pom.xml                   --java-lib --usj-name=jetty8-plus         --package=libjetty8-extra-java
+test-jetty-servlet/pom.xml           --java-lib --usj-name=jetty8-test-servlet --package=libjetty8-extra-java
+
+# Ignored
+jetty-distribution/pom.xml           --ignore
+jetty-http-spi/pom.xml               --ignore
+jetty-nosql/pom.xml                  --ignore
+jetty-osgi/pom.xml                   --ignore
+jetty-spdy/pom.xml                   --ignore
+test-continuation/pom.xml            --ignore
+test-continuation-jetty6/pom.xml     --ignore
+test-jetty-webapp/pom.xml            --ignore
+test-jetty-nested/pom.xml            --ignore
+example-jetty-embedded/pom.xml       --ignore
+example-async-rest/pom.xml           --ignore
+tests/pom.xml                        --ignore

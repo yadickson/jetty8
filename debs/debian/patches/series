@@ -1,0 +1,9 @@
+annotations-find-asm-commons.patch
+maven-bundle-plugin-version.patch
+aggregate-doc.patch
+adjust-configuration.patch
+fix-servletcontext-security-check.patch
+initialize-tomcat-jasper.patch
+asm-upgrade.patch
+drop-jetty6-continuations-support.patch
+osgi-execution-environment.patch

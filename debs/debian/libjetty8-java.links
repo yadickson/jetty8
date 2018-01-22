@@ -1,0 +1,25 @@
+#!/usr/bin/dh-exec
+
+usr/share/java/jetty8-start.jar              usr/share/jetty8/start.jar
+
+usr/share/java/jetty8-continuation.jar       usr/share/jetty8/lib/jetty-continuation-${VERSION}.jar
+usr/share/java/jetty8-deploy.jar             usr/share/jetty8/lib/jetty-deploy-${VERSION}.jar
+usr/share/java/jetty8-http.jar               usr/share/jetty8/lib/jetty-http-${VERSION}.jar
+usr/share/java/jetty8-io.jar                 usr/share/jetty8/lib/jetty-io-${VERSION}.jar
+usr/share/java/jetty8-jaspi.jar              usr/share/jetty8/lib/jetty-jaspi-${VERSION}.jar
+usr/share/java/jetty8-jmx.jar                usr/share/jetty8/lib/jetty-jmx-${VERSION}.jar
+usr/share/java/jetty8-jsp.jar                usr/share/jetty8/lib/jetty-jsp-${VERSION}.jar
+usr/share/java/jetty8-nested.jar             usr/share/jetty8/lib/jetty-nested-${VERSION}.jar
+usr/share/java/jetty8-overlay-deployer.jar   usr/share/jetty8/lib/jetty-overlay-deployer-${VERSION}.jar
+usr/share/java/jetty8-policy.jar             usr/share/jetty8/lib/jetty-policy-${VERSION}.jar
+usr/share/java/jetty8-rewrite.jar            usr/share/jetty8/lib/jetty-rewrite-${VERSION}.jar
+usr/share/java/jetty8-security.jar           usr/share/jetty8/lib/jetty-security-${VERSION}.jar
+usr/share/java/jetty8-server.jar             usr/share/jetty8/lib/jetty-server-${VERSION}.jar
+usr/share/java/jetty8-servlet.jar            usr/share/jetty8/lib/jetty-servlet-${VERSION}.jar
+usr/share/java/jetty8-servlets.jar           usr/share/jetty8/lib/jetty-servlets-${VERSION}.jar
+usr/share/java/jetty8-util.jar               usr/share/jetty8/lib/jetty-util-${VERSION}.jar
+usr/share/java/jetty8-webapp.jar             usr/share/jetty8/lib/jetty-webapp-${VERSION}.jar
+usr/share/java/jetty8-websocket.jar          usr/share/jetty8/lib/jetty-websocket-${VERSION}.jar
+usr/share/java/jetty8-xml.jar                usr/share/jetty8/lib/jetty-xml-${VERSION}.jar
+
+usr/share/java/servlet-api-3.0.jar           usr/share/jetty8/lib/servlet-api-3.0.jar

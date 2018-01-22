@@ -1,0 +1,61 @@
+Description: Add an InstanceManager in the ServletContext to integrate Tomcat Jasper with Jetty.
+Author: Emmanuel Bourg <ebourg@apache.org>
+Forwarded: not-needed
+--- a/jetty-webapp/src/main/java/org/eclipse/jetty/webapp/WebAppContext.java
++++ b/jetty-webapp/src/main/java/org/eclipse/jetty/webapp/WebAppContext.java
+@@ -196,6 +196,8 @@
+         _scontext=new Context();
+         setErrorHandler(new ErrorPageErrorHandler());
+         setProtectedTargets(__dftProtectedTargets);
++
++        initializeJasper();
+     }
+ 
+     /* ------------------------------------------------------------ */
+@@ -211,6 +213,8 @@
+         setWar(webApp);
+         setErrorHandler(new ErrorPageErrorHandler());
+         setProtectedTargets(__dftProtectedTargets);
++
++        initializeJasper();
+     }
+ 
+     /* ------------------------------------------------------------ */
+@@ -226,6 +230,8 @@
+         setWar(webApp);
+         setErrorHandler(new ErrorPageErrorHandler());
+         setProtectedTargets(__dftProtectedTargets);
++
++        initializeJasper();
+     }
+ 
+     /* ------------------------------------------------------------ */
+@@ -243,6 +249,28 @@
+         _scontext = new Context();
+         setErrorHandler(errorHandler != null ? errorHandler : new ErrorPageErrorHandler());
+         setProtectedTargets(__dftProtectedTargets);
++
++        initializeJasper();
++    }
++
++    private void initializeJasper() {
++        // check if Jasper is on the classpath
++        boolean jasperFound = false;
++        try {
++            Class.forName("org.apache.jasper.servlet.JspServlet");
++            jasperFound = true;
++        } catch (ClassNotFoundException e) {
++        }
++
++        // initialize an InstanceManager required by Jasper
++        if (jasperFound) {
++            try {
++                Object instanceManager = Class.forName("org.apache.tomcat.SimpleInstanceManager").newInstance();
++                setAttribute("org.apache.tomcat.InstanceManager", instanceManager);
++            } catch (Exception e) {
++                LOG.warn("Couldn't initialize the InstanceManager required by Tomcat Jasper", e);
++            }
++        }
+     }
+ 
+     /* ------------------------------------------------------------ */
