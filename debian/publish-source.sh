@@ -8,9 +8,11 @@ ORIG_TARBALL="../${PKG}_${VERSION}.orig.tar.gz"
 
 [ -f "${ORIG_TARBALL}" ] || exit 1
 
-rm -rf .pc target build
-rm -rf pom.xml* soapui*
-rm -f README RELEASENOTES.txt
+VER=$(echo "${VERSION}" | awk -F'.v' '{print $1}')
 
-tar --strip-components=1 -xzf "${ORIG_TARBALL}" "${PKG}-${VERSION}" || exit 1
+rm -rf .pc target build
+rm -rf pom.xml* jetty-* example-* test*
+rm -f *.xml *.txt *.html
+
+tar --strip-components=1 -xzf "${ORIG_TARBALL}" "${PKG}-${VER}" || exit 1
 

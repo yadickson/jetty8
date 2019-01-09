@@ -1,22 +1,18 @@
-debs/jetty*/
-debs/test*/
-debs/example*/
-debs/*.xml
-debs/.pc/
-debs/.travis.yml
-
-debs/BUILDING.txt
-debs/Jenkinsfile
-debs/LICENSE-APACHE-2.0.txt
-debs/LICENSE-CONTRIBUTOR/
-debs/LICENSE-ECLIPSE-1.0.html
-debs/NOTICE.txt
-debs/README.txt
-debs/VERSION.txt
-debs/header-template.txt
-debs/icon.jpg
-
+.pc/
+debian/.debhelper/
+debian/maven-repo/
+debian/*jetty*/
+debian/*.log
+debian/*.substvars
+debian/stamp-maven-check
+debian/stamp-poms-patched
+debian/files
+*.xml.save
+.travis.bintray.json
 target/
+build/
+*.rej
+
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
@@ -28,3 +24,4 @@ buildNumber.properties
 
 # Avoid ignoring Maven wrapper jar file (.jar files are usually ignored)
 !/.mvn/wrapper/maven-wrapper.jar
+

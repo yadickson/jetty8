@@ -1,3 +1,9 @@
+jetty8 (8.1.16.v20140903-2) stretch; urgency=medium
+
+  * Upstream reelase.
+
+ -- Yadickson Soto <yadickson@gmail.com>  Wed, 09 Jan 2019 15:41:42 -0300
+
 jetty8 (8.1.16.v20140903-1) unstable; urgency=medium
 
   * Initial commit.
