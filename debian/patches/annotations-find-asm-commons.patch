@@ -15,7 +15,7 @@ Subject: annotations-find-asm-commons
 +    <dependency>
 +      <groupId>asm</groupId>
 +      <artifactId>asm-commons</artifactId>
-+      <version>4.x</version>
++      <version>3.x</version>
 +    </dependency>
    </dependencies>
  </project>

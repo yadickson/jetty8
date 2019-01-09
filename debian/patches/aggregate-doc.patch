@@ -3,7 +3,7 @@ Date: Thu, 12 Apr 2012 22:46:39 +0200
 Subject: aggregate-doc
 --- a/pom.xml
 +++ b/pom.xml
-@@ -329,6 +329,8 @@
+@@ -315,6 +315,8 @@
            <groupId>org.apache.maven.plugins</groupId>
            <artifactId>maven-javadoc-plugin</artifactId>
            <configuration>

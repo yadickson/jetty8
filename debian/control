@@ -1,0 +1,38 @@
+Source: jetty8
+Section: java
+Priority: optional
+Maintainer: Debian Java Maintainers <pkg-java-maintainers@lists.alioth.debian.org>
+Uploaders: Yadickson Soto <yadickson@gmail.com>
+Build-Depends: ant-optional,
+               cdbs (>> 0.4.5.3),
+               debhelper (>= 9),
+               default-jdk,
+               glassfish-jmac-api (>= 1:2.1.1-b31g-2),
+               javahelper,
+               junit,
+               libbuild-helper-maven-plugin-java,
+               libgeronimo-jta-1.1-spec-java,
+               libmail-java,
+               libjstl1.1-java,
+               libmaven-bundle-plugin-java,
+               libmaven-javadoc-plugin-java,
+               libmockito-java,
+               libservlet3.0-java (>= 7.0.40-2),
+               maven-debian-helper,
+               maven-repo-helper
+Standards-Version: 3.9.6
+Vcs-Git: git://anonscm.debian.org/pkg-java/jetty8.git
+Vcs-Browser: http://anonscm.debian.org/gitweb/?p=pkg-java/jetty8.git
+Homepage: http://www.eclipse.org/jetty/
+
+Package: libjetty8-java
+Architecture: all
+Depends: ${misc:Depends}, libservlet3.0-java
+Description: Java servlet engine and webserver -- core libraries
+ Jetty is an Open Source HTTP Servlet Server written in 100% Java.
+ It is designed to be light weight, high performance, embeddable,
+ extensible and flexible, thus making it an ideal platform for serving
+ dynamic HTTP requests from any Java application.
+ .
+ This package contains the core libraries
+

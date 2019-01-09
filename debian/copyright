@@ -2,7 +2,7 @@ Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: Jetty
 
 Files: *
-Copyright: 2006-2015, Mort Bay Consulting Pty. Ltd.
+Copyright: 2006-2011, Mort Bay Consulting Pty. Ltd.
 License: Apache-2.0 or EPL-1.0
 
 Files: jetty-client/src/test/java/org/eclipse/jetty/client/Http100ContinueTest.java
@@ -255,7 +255,7 @@ Files: debian/*
 Copyright: 2003, Philipp Meier <meier@meisterbohne.de>
            2009, Ludovic Claude <ludovic.claude@laposte.net>
            2009, David Yu <david.yu.ftw@gmail.com>
-           2012-2015, Debian Java Maintainers <pkg-java-maintainers@lists.alioth.debian.org>
+           2012, Debian Java Maintainers <pkg-java-maintainers@lists.alioth.debian.org>
 License: Apache-2.0
 
 License: Apache-2.0

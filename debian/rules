@@ -1,0 +1,47 @@
+#!/usr/bin/make -f
+
+include /usr/share/cdbs/1/rules/debhelper.mk
+include /usr/share/cdbs/1/class/javahelper.mk
+include /usr/share/cdbs/1/class/maven.mk
+
+JAVA_HOME := /usr/lib/jvm/default-java
+
+DEB_MAVEN_INSTALL_TARGET :=
+DEB_MAVEN_INSTALL_DOC_TARGET :=
+DEB_MAVEN_DOC_TARGET := javadoc:aggregate
+DEB_MAVEN_ARGS := -P-aggregates -P-osgi
+DEB_INSTALL_CHANGELOGS_ALL := VERSION.txt
+
+LIBJETTY_JARS := continuation deploy http io jaspi jmx jsp nested \
+  overlay-deployer policy rewrite security server servlet servlets start util \
+  webapp websocket xml
+
+# Some java sources contain UTF-8 characters, build fails with C locale
+export LC_ALL=C.UTF-8
+
+install/libjetty8-java::
+	mh_installpoms -plibjetty8-java
+	version=$(shell grep 'debian.originalVersion' pom.xml | head -1 | sed -e 's/.*<debian.originalVersion>\(.*\)<\/debian.originalVersion>.*/\1/'); \
+	for lib in $(LIBJETTY_JARS); do \
+		mh_installjar -plibjetty8-java --java-lib --usj-name=jetty8-$$lib \
+		    jetty-$$lib/pom.xml jetty-$$lib/target/jetty-$$lib-*.jar; \
+		if [ $$lib = "start" ]; then \
+		    continue; \
+		fi; \
+		jar=jetty-$$lib-$$version.jar; \
+		jar8=jetty8-$$lib-$$version.jar; \
+		dh_link -plibjetty8-java usr/share/java/$$jar8 usr/share/jetty8/lib/$$jar; \
+	done; \
+	dh_link -plibjetty8-java usr/share/java/jetty8-start-$$version.jar usr/share/jetty8/start.jar
+	mv target/site/apidocs target/site/api
+	dh_install -p libjetty8-java-doc
+
+PKG  = $(word 2,$(shell dpkg-parsechangelog -ldebian/changelog | grep ^Source))
+VER ?= $(shell dpkg-parsechangelog -ldebian/changelog | perl -ne 'print $$1 if m{^Version:\s+(?:\d+:)?(\d.*)(?:\-\d+.*)};')
+
+get-orig-source:
+	sh debian/get-orig-source.sh "$(PKG)" "$(VER)"
+
+publish-source:
+	sh debian/publish-source.sh "$(PKG)" "$(VER)"
+
