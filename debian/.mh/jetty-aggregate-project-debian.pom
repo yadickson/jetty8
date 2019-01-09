@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.eclipse.jetty.aggregate</groupId>
+	<artifactId>jetty-aggregate-project</artifactId>
+	<version>debian</version>
+	<packaging>pom</packaging>
+	<parent>
+		<groupId>org.eclipse.jetty</groupId>
+		<artifactId>jetty-project</artifactId>
+		<version>debian</version>
+	</parent>
+	
+	<properties>
+		<debian.originalVersion>8.1.16.v20140903</debian.originalVersion>
+		<debian.package>libjetty8-java</debian.package>
+	</properties>
+	<name>Jetty :: Aggregate Project</name>
+	<modules>
+		<module>jetty-server</module>
+		<module>jetty-client</module>
+		<module>jetty-servlet</module>
+		<module>jetty-webapp</module>
+		<module>jetty-websocket</module>
+		<module>jetty-plus</module>
+		<module>jetty-all-server</module>
+		<module>jetty-all</module>
+	</modules>
+</project>

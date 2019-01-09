@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.eclipse.jetty.aggregate</groupId>
+	<artifactId>jetty-servlet</artifactId>
+	<version>8.1.16.v20140903</version>
+	<packaging>jar</packaging>
+	<parent>
+		<groupId>org.eclipse.jetty.aggregate</groupId>
+		<artifactId>jetty-aggregate-project</artifactId>
+		<version>8.1.16.v20140903</version>
+	</parent>
+	<properties>
+		
+			<debian.originalVersion>8.1.16.v20140903</debian.originalVersion>
+		
+			<debian.package>libjetty8-java</debian.package>
+	</properties>
+	
+	<name>Jetty :: Aggregate :: Servlet Server</name>
+	<url>http://www.eclipse.org/jetty</url>
+	<build>
+		<sourceDirectory>${project.build.directory}/sources</sourceDirectory>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>package</id>
+						<phase>package</phase>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+						<configuration>
+							<archive>
+								<manifest>
+								</manifest>
+								<manifestEntries>
+									<mode>development</mode>
+									<url>http://eclipse.org/jetty</url>
+									<Built-By>${user.name}</Built-By>
+									<package>org.eclipse.jetty</package>
+									<Bundle-License>http://git.eclipse.org/c/jetty/org.eclipse.jetty.project.git/tree/NOTICE.txt</Bundle-License>
+									<Bundle-Name>Jetty HTTP Server</Bundle-Name>
+								</manifestEntries>
+							</archive>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-servlet</artifactId>
+			<version>8.1.16.v20140903</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-websocket</artifactId>
+			<version>8.1.16.v20140903</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+</project>

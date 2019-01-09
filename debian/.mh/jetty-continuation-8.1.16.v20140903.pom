@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.eclipse.jetty</groupId>
+	<artifactId>jetty-continuation</artifactId>
+	<version>8.1.16.v20140903</version>
+	<packaging>jar</packaging>
+	<parent>
+		<groupId>org.eclipse.jetty</groupId>
+		<artifactId>jetty-project</artifactId>
+		<version>debian</version>
+	</parent>
+	
+	<name>Jetty :: Continuation</name>
+	<description>Asynchronous API</description>
+	<properties>
+		<bundle-symbolic-name>${project.groupId}.continuation</bundle-symbolic-name>
+		<debian.originalVersion>8.1.16.v20140903</debian.originalVersion>
+		<debian.package>libjetty8-java</debian.package>
+		
+			<debian.javax.servlet.servlet-api.originalVersion>3.0</debian.javax.servlet.servlet-api.originalVersion>
+		
+			<debian.org.eclipse.jetty.jetty-util.originalVersion>8.1.16.v20140903</debian.org.eclipse.jetty.jetty-util.originalVersion>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>3.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-util</artifactId>
+			<version>debian</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+</project>

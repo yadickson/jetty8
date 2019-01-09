@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.eclipse.jetty</groupId>
+	<artifactId>jetty-util</artifactId>
+	<version>8.1.16.v20140903</version>
+	<packaging>jar</packaging>
+	<parent>
+		<groupId>org.eclipse.jetty</groupId>
+		<artifactId>jetty-project</artifactId>
+		<version>8.1.16.v20140903</version>
+	</parent>
+	
+	<name>Jetty :: Utilities</name>
+	<description>Utility classes for Jetty</description>
+	<url>http://www.eclipse.org/jetty</url>
+	<properties>
+		<bundle-symbolic-name>${project.groupId}.util</bundle-symbolic-name>
+		
+			<debian.originalVersion>8.1.16.v20140903</debian.originalVersion>
+		
+			<debian.package>libjetty8-java</debian.package>
+	</properties>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<extensions>true</extensions>
+				<executions>
+					<execution>
+						<goals>
+							<goal>manifest</goal>
+						</goals>
+						<configuration>
+							<instructions>
+								<Import-Package>javax.servlet.*;version="2.6.0",org.slf4j;version="[1.5,2.0)";resolution:=optional,org.slf4j.impl;version="[1.5,2.0)";resolution:=optional,*</Import-Package>
+							</instructions>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<!--
+        Required for OSGI
+        -->
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+					</archive>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<scope>provided</scope>
+			<optional>true</optional>
+		</dependency>
+		<!--
+      This dependency is used to test Slf4jLog.
+      Due to the introduction of src/test/resource/jetty-logging.properties (and the Log.static{} block)
+      the default Log implementation is still StdErrLog during testing. 
+     -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-jdk14</artifactId>
+			<version>debian</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+</project>

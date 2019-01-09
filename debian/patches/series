@@ -6,3 +6,4 @@ aggregate-doc.patch
 adjust-configuration.patch
 fix-servletcontext-security-check.patch
 initialize-tomcat-jasper.patch
+pom-version.patch

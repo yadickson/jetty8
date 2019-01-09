@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.eclipse.jetty</groupId>
+	<artifactId>jetty-servlets</artifactId>
+	<version>debian</version>
+	<packaging>jar</packaging>
+	<parent>
+		<groupId>org.eclipse.jetty</groupId>
+		<artifactId>jetty-project</artifactId>
+		<version>debian</version>
+	</parent>
+	
+	<name>Jetty :: Utility Servlets and Filters</name>
+	<description>Utility Servlets from Jetty</description>
+	<properties>
+		<bundle-symbolic-name>${project.groupId}.servlets</bundle-symbolic-name>
+		<debian.originalVersion>8.1.16.v20140903</debian.originalVersion>
+		<debian.package>libjetty8-java</debian.package>
+		
+			<debian.org.eclipse.jetty.jetty-client.originalVersion>8.1.16.v20140903</debian.org.eclipse.jetty.jetty-client.originalVersion>
+		
+			<debian.org.eclipse.jetty.jetty-continuation.originalVersion>8.1.16.v20140903</debian.org.eclipse.jetty.jetty-continuation.originalVersion>
+		
+			<debian.org.eclipse.jetty.jetty-jmx.originalVersion>8.1.16.v20140903</debian.org.eclipse.jetty.jetty-jmx.originalVersion>
+		
+			<debian.org.eclipse.jetty.jetty-util.originalVersion>8.1.16.v20140903</debian.org.eclipse.jetty.jetty-util.originalVersion>
+		
+			<debian.org.eclipse.jetty.jetty-webapp.originalVersion>8.1.16.v20140903</debian.org.eclipse.jetty.jetty-webapp.originalVersion>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-continuation</artifactId>
+			<version>debian</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-webapp</artifactId>
+			<version>debian</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-client</artifactId>
+			<version>debian</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-util</artifactId>
+			<version>debian</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+</project>

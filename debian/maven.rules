@@ -18,4 +18,4 @@ s/org.eclipse.jetty.orbit/javax.servlet.jsp/ s/javax.servlet.jsp/jsp-api/ jar s/
 s/org.eclipse.jetty.orbit/javax.servlet/ s/javax.servlet.jsp.jstl/jstl/ jar s/.*/1.1/ * *
 s/org.eclipse.jetty.orbit/org.apache.tomcat/ s/org.apache.jasper.glassfish/tomcat-jasper/ jar s/.*/debian/ * *
 s/org.mortbay.jetty/javax.servlet/ servlet-api jar  s/.*/3.0/ * *
-org.mortbay.jetty jetty-util * s/6\..*/6.x/ * *
+s/org.mortbay.jetty/org.eclipse.jetty/ jetty-util * * * *

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.eclipse.jetty</groupId>
+	<artifactId>jetty-jaspi</artifactId>
+	<version>8.1.16.v20140903</version>
+	<packaging>jar</packaging>
+	<parent>
+		<groupId>org.eclipse.jetty</groupId>
+		<artifactId>jetty-project</artifactId>
+		<version>debian</version>
+	</parent>
+	
+	<name>Jetty :: JASPI Security</name>
+	<description>Jetty security infrastructure</description>
+	<properties>
+		<bundle-symbolic-name>${project.groupId}.jaspi</bundle-symbolic-name>
+		<debian.originalVersion>8.1.16.v20140903</debian.originalVersion>
+		<debian.package>libjetty8-java</debian.package>
+		
+			<debian.org.eclipse.jetty.jetty-security.originalVersion>8.1.16.v20140903</debian.org.eclipse.jetty.jetty-security.originalVersion>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-security</artifactId>
+			<version>debian</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.security.auth.message</groupId>
+			<artifactId>jmac-api</artifactId>
+		</dependency>
+	</dependencies>
+</project>

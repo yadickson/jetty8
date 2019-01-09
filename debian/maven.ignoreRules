@@ -18,3 +18,5 @@ org.eclipse.jetty.orbit org.eclipse.jdt.core * * * *
 org.eclipse.jetty.toolchain jetty-test-helper * * * *
 org.eclipse.jetty.toolchain jetty-version-maven-plugin * * * *
 org.ops4j.pax.exam * * * * *
+
+org.apache.tomcat tomcat-annotations-api * * * * *

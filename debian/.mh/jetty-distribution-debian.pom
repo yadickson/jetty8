@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.eclipse.jetty</groupId>
+	<artifactId>jetty-distribution</artifactId>
+	<version>debian</version>
+	<packaging>pom</packaging>
+	<parent>
+		<groupId>org.eclipse.jetty</groupId>
+		<artifactId>jetty-project</artifactId>
+		<version>debian</version>
+	</parent>
+	
+	<name>Jetty :: Distribution Assemblies</name>
+	<properties>
+		<assembly-directory>target/distribution</assembly-directory>
+		<debian.originalVersion>8.1.16.v20140903</debian.originalVersion>
+		<debian.package>libjetty8-java</debian.package>
+		
+			<debian.org.eclipse.jetty.aggregate.jetty-all.originalVersion>debian</debian.org.eclipse.jetty.aggregate.jetty-all.originalVersion>
+		
+			<debian.org.eclipse.jetty.jetty-ajp.originalVersion>8.1.16.v20140903</debian.org.eclipse.jetty.jetty-ajp.originalVersion>
+		
+			<debian.org.eclipse.jetty.jetty-annotations.originalVersion>debian</debian.org.eclipse.jetty.jetty-annotations.originalVersion>
+		
+			<debian.org.eclipse.jetty.jetty-client.originalVersion>8.1.16.v20140903</debian.org.eclipse.jetty.jetty-client.originalVersion>
+		
+			<debian.org.eclipse.jetty.jetty-deploy.originalVersion>8.1.16.v20140903</debian.org.eclipse.jetty.jetty-deploy.originalVersion>
+		
+			<debian.org.eclipse.jetty.jetty-jmx.originalVersion>8.1.16.v20140903</debian.org.eclipse.jetty.jetty-jmx.originalVersion>
+		
+			<debian.org.eclipse.jetty.jetty-jndi.originalVersion>8.1.16.v20140903</debian.org.eclipse.jetty.jetty-jndi.originalVersion>
+		
+			<debian.org.eclipse.jetty.jetty-jsp.originalVersion>debian</debian.org.eclipse.jetty.jetty-jsp.originalVersion>
+		
+			<debian.org.eclipse.jetty.jetty-monitor.originalVersion>8.1.16.v20140903</debian.org.eclipse.jetty.jetty-monitor.originalVersion>
+		
+			<debian.org.eclipse.jetty.jetty-overlay-deployer.originalVersion>8.1.16.v20140903</debian.org.eclipse.jetty.jetty-overlay-deployer.originalVersion>
+		
+			<debian.org.eclipse.jetty.jetty-plus.originalVersion>8.1.16.v20140903</debian.org.eclipse.jetty.jetty-plus.originalVersion>
+		
+			<debian.org.eclipse.jetty.jetty-policy.originalVersion>8.1.16.v20140903</debian.org.eclipse.jetty.jetty-policy.originalVersion>
+		
+			<debian.org.eclipse.jetty.jetty-rewrite.originalVersion>8.1.16.v20140903</debian.org.eclipse.jetty.jetty-rewrite.originalVersion>
+		
+			<debian.org.eclipse.jetty.jetty-servlets.originalVersion>8.1.16.v20140903</debian.org.eclipse.jetty.jetty-servlets.originalVersion>
+		
+			<debian.org.eclipse.jetty.jetty-start.originalVersion>8.1.16.v20140903</debian.org.eclipse.jetty.jetty-start.originalVersion>
+		
+			<debian.org.eclipse.jetty.jetty-websocket.originalVersion>8.1.16.v20140903</debian.org.eclipse.jetty.jetty-websocket.originalVersion>
+	</properties>
+	<dependencies>
+		<!-- Orbit Deps -->
+		<dependency>
+			<groupId>asm</groupId>
+			<artifactId>asm</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty.orbit</groupId>
+			<artifactId>javax.activation</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.mail</groupId>
+			<artifactId>javax.mail</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.geronimo.specs</groupId>
+			<artifactId>geronimo-jta_1.1_spec</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.security.auth.message</groupId>
+			<artifactId>jmac-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-jsp</artifactId>
+			<version>debian</version>
+		</dependency>
+		<!-- Standard Jetty Deps -->
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-deploy</artifactId>
+			<version>debian</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-rewrite</artifactId>
+			<version>debian</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-ajp</artifactId>
+			<version>debian</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-annotations</artifactId>
+			<version>debian</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-jmx</artifactId>
+			<version>debian</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-jndi</artifactId>
+			<version>debian</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-plus</artifactId>
+			<version>debian</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-client</artifactId>
+			<version>debian</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-start</artifactId>
+			<version>debian</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-policy</artifactId>
+			<version>debian</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-servlets</artifactId>
+			<version>debian</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-monitor</artifactId>
+			<version>debian</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-websocket</artifactId>
+			<version>debian</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-overlay-deployer</artifactId>
+			<version>debian</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty.aggregate</groupId>
+			<artifactId>jetty-all</artifactId>
+			<classifier>javadoc</classifier>
+			<type>jar</type>
+			<version>debian</version>
+		</dependency>
+	</dependencies>
+</project>

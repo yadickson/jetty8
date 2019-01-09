@@ -7,12 +7,10 @@ include /usr/share/cdbs/1/class/maven.mk
 JAVA_HOME := /usr/lib/jvm/default-java
 
 DEB_MAVEN_INSTALL_TARGET :=
-DEB_MAVEN_INSTALL_DOC_TARGET :=
-DEB_MAVEN_DOC_TARGET := javadoc:aggregate
 DEB_MAVEN_ARGS := -P-aggregates -P-osgi
 DEB_INSTALL_CHANGELOGS_ALL := VERSION.txt
 
-LIBJETTY_JARS := continuation deploy http io jaspi jmx jsp nested \
+LIBJETTY_JARS := continuation deploy http io jaspi jmx nested \
   overlay-deployer policy rewrite security server servlet servlets start util \
   webapp websocket xml
 
@@ -33,8 +31,6 @@ install/libjetty8-java::
 		dh_link -plibjetty8-java usr/share/java/$$jar8 usr/share/jetty8/lib/$$jar; \
 	done; \
 	dh_link -plibjetty8-java usr/share/java/jetty8-start-$$version.jar usr/share/jetty8/start.jar
-	mv target/site/apidocs target/site/api
-	dh_install -p libjetty8-java-doc
 
 PKG  = $(word 2,$(shell dpkg-parsechangelog -ldebian/changelog | grep ^Source))
 VER ?= $(shell dpkg-parsechangelog -ldebian/changelog | perl -ne 'print $$1 if m{^Version:\s+(?:\d+:)?(\d.*)(?:\-\d+.*)};')
