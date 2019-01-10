@@ -20,3 +20,5 @@ org.eclipse.jetty.toolchain jetty-version-maven-plugin * * * *
 org.ops4j.pax.exam * * * * *
 
 org.apache.tomcat tomcat-annotations-api * * * * *
+org.apache.maven.plugins maven-javadoc-plugin * * * * *
+

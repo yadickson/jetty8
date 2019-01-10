@@ -1,5 +1,6 @@
 .pc/
 debian/.debhelper/
+debian/.mh/
 debian/jh_build_stamp
 debian/maven-repo/
 debian/*jetty*/

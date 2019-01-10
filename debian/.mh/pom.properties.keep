@@ -1,8 +1,0 @@
-#POM properties
-#Wed Jan 09 17:15:53 CLST 2019
-version=8.1.16.v20140903
-groupId=org.eclipse.jetty
-debianVersion=debian
-type=jar
-classifier=
-artifactId=jetty-servlet
