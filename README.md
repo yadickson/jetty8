@@ -70,6 +70,6 @@ GPL-3.0 © [Yadickson Soto](https://github.com/yadickson)
 
 Apache-2.0 EPL-1.0 © [Jetty Project](https://github.com/eclipse/jetty.project)
 
-[travis-image]: https://api.travis-ci.org/yadickson/jetty8-debs.svg?branch=stretch
+[travis-image]: https://api.travis-ci.org/yadickson/jetty8-debs.svg?branch=master
 [travis-url]: https://travis-ci.org/yadickson/jetty8-debs
 
