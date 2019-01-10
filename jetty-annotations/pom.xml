@@ -105,10 +105,5 @@
       <groupId>org.eclipse.jetty.orbit</groupId>
       <artifactId>org.objectweb.asm</artifactId>
     </dependency>
-    <dependency>
-      <groupId>asm</groupId>
-      <artifactId>asm-commons</artifactId>
-      <version>3.x</version>
-    </dependency>
   </dependencies>
 </project>

@@ -23,10 +23,15 @@ unzip "${ZIPFILE}" || exit 1
 rm -f "${ZIPFILE}"
 
 mv jetty.project-* "${PKG}-${VER}"
+
+rm -rf "${PKG}-${VER}"/example-*
+rm -rf "${PKG}-${VER}"/test*
 rm -rf "${PKG}-${VER}"/LICENSE-CONTRIBUTOR
 rm -f "${PKG}-${VER}"/settings.xml
 rm -f "${PKG}-${VER}"/.travis.yml
 rm -f "${PKG}-${VER}"/jetty-continuation/src/main/java/org/eclipse/jetty/continuation/Jetty6Continuation.java
+
+cp debian/libjetty8-java.pom.xml "${PKG}-${VER}"/pom.xml
 
 find "${PKG}-${VER}" -type f -name '*.jpg' -exec rm -f '{}' \;
 find "${PKG}-${VER}" -type f -name '*.java' -or -name '*.xml' -exec iconv -f ISO-8859-1 -t UTF-8 '{}' -o '{}'.iconv \; -exec mv '{}'.iconv '{}' \; -exec dos2unix '{}' \;
