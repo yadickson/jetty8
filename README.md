@@ -8,6 +8,18 @@
 - cdbs
 - default-jdk
 - maven-debian-helper (>= 1.5)
+- maven-repo-helper
+- ant-optional
+- glassfish-jmac-api (>= 1:2.1.1-b31g-2)
+- javahelper
+- junit
+- libbuild-helper-maven-plugin-java
+- libgeronimo-jta-1.1-spec-java
+- libmail-java
+- libmaven-bundle-plugin-java
+- libmaven-javadoc-plugin-java
+- libmockito-java
+- libservlet3.0-java (>= 7.0.40-2)
 
 **Download source code**
 

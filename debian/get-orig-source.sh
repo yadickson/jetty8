@@ -29,6 +29,7 @@ rm -rf "${PKG}-${VER}"/test*
 rm -rf "${PKG}-${VER}"/LICENSE-CONTRIBUTOR
 rm -f "${PKG}-${VER}"/settings.xml
 rm -f "${PKG}-${VER}"/.travis.yml
+rm -f "${PKG}-${VER}"/BUILDING.txt
 rm -f "${PKG}-${VER}"/jetty-continuation/src/main/java/org/eclipse/jetty/continuation/Jetty6Continuation.java
 
 cp debian/libjetty8-java.pom.xml "${PKG}-${VER}"/pom.xml
