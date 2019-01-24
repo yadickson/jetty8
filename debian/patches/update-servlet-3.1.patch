@@ -1,0 +1,220 @@
+--- a/jetty-util/src/main/java/org/eclipse/jetty/util/MultiPartInputStream.java
++++ b/jetty-util/src/main/java/org/eclipse/jetty/util/MultiPartInputStream.java
+@@ -239,6 +239,11 @@
+            return _name;
+         }
+ 
++        public String getSubmittedFileName()
++        {
++           return _name;
++        }
++
+         /** 
+          * @see javax.servlet.http.Part#getSize()
+          */
+--- a/jetty-server/src/main/java/org/eclipse/jetty/server/HttpOutput.java
++++ b/jetty-server/src/main/java/org/eclipse/jetty/server/HttpOutput.java
+@@ -22,6 +22,7 @@
+ import java.io.Writer;
+ 
+ import javax.servlet.ServletOutputStream;
++import javax.servlet.WriteListener;
+ 
+ import org.eclipse.jetty.http.AbstractGenerator;
+ import org.eclipse.jetty.http.Generator;
+@@ -45,7 +46,8 @@
+     protected final AbstractGenerator _generator;
+     private boolean _closed;
+     private ByteArrayBuffer _onebyte;
+-    
++    private WriteListener writeListener;
++
+     // These are held here for reuse by Writer
+     String _characterEncoding;
+     Writer _converter;
+@@ -180,4 +182,16 @@
+     {
+         write(s.getBytes());
+     }
++
++    @Override
++    public boolean isReady()
++    {
++        return true;
++    }
++    
++    @Override
++    public void setWriteListener(WriteListener listener)
++    {
++        this.writeListener = listener;
++    }
+ }
+--- a/jetty-server/src/main/java/org/eclipse/jetty/server/HttpInput.java
++++ b/jetty-server/src/main/java/org/eclipse/jetty/server/HttpInput.java
+@@ -21,6 +21,7 @@
+ import java.io.IOException;
+ 
+ import javax.servlet.ServletInputStream;
++import javax.servlet.ReadListener;
+ 
+ import org.eclipse.jetty.http.HttpParser;
+ import org.eclipse.jetty.io.Buffer;
+@@ -30,6 +31,7 @@
+ {
+     protected final AbstractHttpConnection _connection;
+     protected final HttpParser _parser;
++    private ReadListener readListener;
+ 
+     /* ------------------------------------------------------------ */
+     public HttpInput(AbstractHttpConnection connection)
+@@ -72,4 +74,22 @@
+     {
+         return _parser.available();
+     }
++
++    @Override
++    public boolean isFinished()
++    {
++        return false;
++    }
++    
++    @Override
++    public boolean isReady()
++    {
++        return true;
++    }
++
++    @Override
++    public void setReadListener(ReadListener listener)
++    {
++        this.readListener = listener;
++    }
+ }
+--- a/jetty-server/src/main/java/org/eclipse/jetty/server/Response.java
++++ b/jetty-server/src/main/java/org/eclipse/jetty/server/Response.java
+@@ -33,6 +33,7 @@
+ import javax.servlet.http.Cookie;
+ import javax.servlet.http.HttpServletResponse;
+ import javax.servlet.http.HttpSession;
++import javax.servlet.WriteListener;
+ 
+ import org.eclipse.jetty.http.HttpCookie;
+ import org.eclipse.jetty.http.HttpFields;
+@@ -1278,6 +1279,17 @@
+         {
+         }
+ 
++        @Override
++        public boolean isReady()
++        {
++            return true;
++        }
++    
++        @Override
++        public void setWriteListener(WriteListener listener)
++        {
++        }
++
+     }
+ 
+ }
+--- a/jetty-http/src/main/java/org/eclipse/jetty/http/gzip/AbstractCompressedStream.java
++++ b/jetty-http/src/main/java/org/eclipse/jetty/http/gzip/AbstractCompressedStream.java
+@@ -28,6 +28,7 @@
+ import javax.servlet.ServletOutputStream;
+ import javax.servlet.http.HttpServletRequest;
+ import javax.servlet.http.HttpServletResponse;
++import javax.servlet.WriteListener;
+ 
+ import org.eclipse.jetty.util.ByteArrayOutputStream2;
+ 
+@@ -48,6 +49,7 @@
+     protected DeflaterOutputStream _compressedOutputStream;
+     protected boolean _closed;
+     protected boolean _doNotCompress;
++    private WriteListener writeListener;
+ 
+     /**
+      * Instantiates a new compressed stream.
+@@ -225,7 +227,19 @@
+         checkOut(len);
+         _out.write(b,off,len);
+     }
++
++    @Override
++    public boolean isReady()
++    {
++        return true;
++    }
+     
++    @Override
++    public void setWriteListener(WriteListener listener)
++    {
++        this.writeListener = listener;
++    }
++
+     /**
+      * Do compress.
+      *
+--- a/jetty-security/src/main/java/org/eclipse/jetty/security/authentication/DeferredAuthentication.java
++++ b/jetty-security/src/main/java/org/eclipse/jetty/security/authentication/DeferredAuthentication.java
+@@ -31,6 +31,7 @@
+ import javax.servlet.http.Cookie;
+ import javax.servlet.http.HttpServletRequest;
+ import javax.servlet.http.HttpServletResponse;
++import javax.servlet.WriteListener;
+ 
+ import org.eclipse.jetty.security.Authenticator;
+ import org.eclipse.jetty.security.IdentityService;
+@@ -329,6 +330,17 @@
+         public void println(String s) throws IOException
+         {
+         }
++
++        @Override
++        public boolean isReady()
++        {
++            return true;
++        }
++    
++        @Override
++        public void setWriteListener(WriteListener listener)
++        {
++        }
+     };
+ 
+     
+--- a/jetty-ajp/src/main/java/org/eclipse/jetty/ajp/Ajp13Parser.java
++++ b/jetty-ajp/src/main/java/org/eclipse/jetty/ajp/Ajp13Parser.java
+@@ -22,6 +22,7 @@
+ import java.io.InterruptedIOException;
+ 
+ import javax.servlet.ServletInputStream;
++import javax.servlet.ReadListener;
+ 
+ import org.eclipse.jetty.http.HttpTokens;
+ import org.eclipse.jetty.http.Parser;
+@@ -876,6 +877,23 @@
+ 
+             return _content.length() > 0;
+         }
++
++        @Override
++        public boolean isFinished()
++        {
++            return false;
++        }
++    
++        @Override
++        public boolean isReady()
++        {
++            return true;
++        }
++
++        @Override
++        public void setReadListener(ReadListener listener)
++        {
++        }
+     }
+ 
+     public boolean isPersistent()

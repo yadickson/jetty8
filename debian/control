@@ -7,7 +7,6 @@ Build-Depends: ant-optional,
                cdbs (>> 0.4.5.3),
                debhelper (>= 9),
                default-jdk,
-               glassfish-jmac-api (>= 1:2.1.1-b31g-2),
                javahelper,
                junit,
                libbuild-helper-maven-plugin-java,
@@ -16,7 +15,8 @@ Build-Depends: ant-optional,
                libmaven-bundle-plugin-java,
                libmaven-javadoc-plugin-java,
                libmockito-java,
-               libservlet3.0-java (>= 7.0.40-2),
+               libservlet3.1-java,
+               libjaspic-java,
                maven-debian-helper,
                maven-repo-helper
 Standards-Version: 3.9.6
@@ -26,7 +26,7 @@ Homepage: http://www.eclipse.org/jetty/
 
 Package: libjetty8-java
 Architecture: all
-Depends: ${misc:Depends}, libservlet3.0-java
+Depends: ${misc:Depends}, libservlet3.1-java, libjaspic-java
 Description: Java servlet engine and webserver -- core libraries
  Jetty is an Open Source HTTP Servlet Server written in 100% Java.
  It is designed to be light weight, high performance, embeddable,

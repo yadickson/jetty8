@@ -6,3 +6,4 @@ adjust-configuration.patch
 fix-servletcontext-security-check.patch
 initialize-tomcat-jasper.patch
 pom-version.patch
+update-servlet-3.1.patch
