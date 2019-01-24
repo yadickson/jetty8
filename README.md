@@ -47,7 +47,6 @@ $ fakeroot debian/rules clean binary
 **Tested**
 
 - Debian stretch
-- Debian buster
 
 **Repositories**
 

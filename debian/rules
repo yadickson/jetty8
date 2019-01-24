@@ -6,7 +6,6 @@ include /usr/share/cdbs/1/class/maven.mk
 
 JAVA_HOME := /usr/lib/jvm/default-java
 
-DEB_DH_BUILDDEB_ARGS_DEFAULT := -- -Z gzip
 DEB_MAVEN_INSTALL_TARGET :=
 DEB_MAVEN_ARGS := -P-aggregates -P-osgi
 DEB_INSTALL_CHANGELOGS_ALL := VERSION.txt
