@@ -26,7 +26,7 @@ Homepage: http://www.eclipse.org/jetty/
 
 Package: libjetty8-java
 Architecture: all
-Depends: ${misc:Depends}, libservlet3.1-java
+Depends: ${misc:Depends}, libservlet3.1-java, libjaspic-java
 Description: Java servlet engine and webserver -- core libraries
  Jetty is an Open Source HTTP Servlet Server written in 100% Java.
  It is designed to be light weight, high performance, embeddable,
