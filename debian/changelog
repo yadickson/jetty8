@@ -1,3 +1,9 @@
+jetty8 (8.1.16.v20140903-3) buster; urgency=medium
+
+  * Update release.
+
+ -- Yadickson Soto <yadickson@gmail.com>  Thu, 24 Jan 2019 11:01:30 -0300
+
 jetty8 (8.1.16.v20140903-2) stretch; urgency=medium
 
   * Upstream relase.
